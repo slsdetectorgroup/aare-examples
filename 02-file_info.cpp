@@ -12,7 +12,7 @@ int main(int argc, char const *argv[]){
 
     //Wrap the code in a try-catch block since we don't know if the file exists
     try{
-        aare::File f(argv[1], "r");
+        aare::File f(argv[1]);
         fmt::print("Frames: {}, Rows: {}, cols: {}\n", f.total_frames(), f.rows(), f.cols());
         return 0;
     } catch (const std::exception &e){
