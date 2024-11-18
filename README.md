@@ -6,7 +6,7 @@ git clone https://github.com/slsdetectorgroup/aare-examples.git
 cd aare-examples
 mkdir build
 cd build
-cmake .. cmake .. -DCMAKE_PREFIX_PATH=SOME_PATH
+cmake .. -DCMAKE_PREFIX_PATH=SOME_PATH
 make -j4
 
 #test the program
