@@ -1,8 +1,10 @@
 #include <iostream>
 #include <vector>
 #include "aare/NDView.hpp"
+#include "aare/NDArray.hpp"
 
 using aare::NDView;
+using aare::NDArray;
 
 int main(){
     //Look at data as a N dimensional array
@@ -26,5 +28,9 @@ int main(){
         std::cout << it << " ";
     }
     std::cout << '\n';
+
+    // We can also do math with the underlying data
+    NDArray<double, 2> res = view*view;
+    std::cout << res << std::endl;
 
 }

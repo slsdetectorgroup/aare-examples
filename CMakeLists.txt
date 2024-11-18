@@ -5,8 +5,8 @@ find_package(aare REQUIRED)
 
 
 #How do we deal with these targets? 
-find_package(fmt REQUIRED)
-find_package(nlohmann_json 3.11.3 REQUIRED)
+# find_package(fmt REQUIRED)
+# find_package(nlohmann_json 3.11.3 REQUIRED)
 
 
 
@@ -23,3 +23,22 @@ foreach(FILE ${ExampleSrc})
     target_link_libraries(${EXENAME}  aare_core)
     set_target_properties(${EXENAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 endforeach()
+
+
+option(ENABLE_ROOT_EXAMPLES "Enable ROOT examples" OFF)
+
+if(ENABLE_ROOT_EXAMPLES)
+    find_package(ROOT CONFIG REQUIRED)
+
+    set(RootExampleSrc
+        04-TH1.cpp
+    )
+
+    foreach(FILE ${RootExampleSrc})
+        get_filename_component(EXENAME ${FILE} NAME_WE)
+        add_executable(${EXENAME} ${FILE})
+        target_link_libraries(${EXENAME}  aare_core ROOT::Hist ROOT::Graf ROOT::Gpad ROOT::Core)
+        set_target_properties(${EXENAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
+    endforeach()
+
+endif()
