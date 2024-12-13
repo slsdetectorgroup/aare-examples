@@ -12,6 +12,7 @@ set(ExampleSrc
     01-NDView.cpp
     02-file_info.cpp
     03-File.cpp
+    05-read_clusters.cpp
 )
 
 #Iterate over the list of examples and compile them
